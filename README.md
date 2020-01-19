@@ -1,2 +1,2 @@
 # RetroBuilder
-<a href='https://bintray.com/profahad/RetroBuilder/RetroBuilder?source=watch' alt='Get automatic notifications about new "RetroBuilder" versions'><img src='https://www.bintray.com/docs/images/bintray_badge_color.png'></a><a href='https://bintray.com/profahad/RetroBuilder/RetroBuilder?source=watch' alt='Get automatic notifications about new "RetroBuilder" versions'><img src='https://www.bintray.com/docs/images/bintray_badge_color.png'></a>
+[ ![Download](https://api.bintray.com/packages/profahad/RetroBuilder/RetroBuilder/images/download.svg?version=1.0.0) ](https://bintray.com/profahad/RetroBuilder/RetroBuilder/1.0.0/link)
