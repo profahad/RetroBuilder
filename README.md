@@ -45,7 +45,7 @@ Or create simple call
 
 ```java
  
-Call<UsersList> openCall = ApiClient.getInstance(this)
+Call<UsersList> call = ApiClient.getInstance(this)
                 .setBaseUrl("https://reqres.in")
                 .getClient().create(ApiInterface.class)
                 .getAllUsers();
