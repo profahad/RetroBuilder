@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        Call<UsersList> call = ApiClient.getInstance(this)
+        Call<UsersList> authCall = ApiClient.getInstance(this)
                 .setBaseUrl("https://reqres.in")
                 .getAuthClient(new AuthInitializer() {
                     @Override
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 }).create(ApiInterface.class)
                 .getAllUsers();
 
-        call.enqueue(new Callback<UsersList>() {
+        authCall.enqueue(new Callback<UsersList>() {
             @Override
             public void onResponse(Call<UsersList> call, Response<UsersList> response) {
                 Timber.i(response.body().toString());
@@ -42,6 +42,25 @@ public class MainActivity extends AppCompatActivity {
                 call.cancel();
             }
         });
+
+        Call<UsersList> openCall = ApiClient.getInstance(this)
+                .setBaseUrl("https://reqres.in")
+                .getClient().create(ApiInterface.class)
+                .getAllUsers();
+
+
+        openCall.enqueue(new Callback<UsersList>() {
+            @Override
+            public void onResponse(Call<UsersList> call, Response<UsersList> response) {
+                Timber.i(response.body().toString());
+            }
+
+            @Override
+            public void onFailure(Call<UsersList> call, Throwable t) {
+                call.cancel();
+            }
+        });
+
 
     }
 }
