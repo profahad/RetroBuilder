@@ -1,6 +1,8 @@
 # RetroBuilder
 RetroBuilder is an helper module for retrofit with added new features like authentication interceptor, enabled logging interceptor, and gson interceptor. 
 
+[ ![Download](https://api.bintray.com/packages/profahad/maven/site.business.appslandz.retrobuilder/images/download.svg) ](https://bintray.com/profahad/maven/site.business.appslandz.retrobuilder/_latestVersion)
+
 ## Installation
 Add this to gradle
 ```gradle
@@ -12,3 +14,51 @@ repositories {
 ```gradle
 implementation 'site.business.appslandz:retrobuilder:1.0.0'
 ```
+
+## Usage
+
+i. Retrofit api service interface
+```java 
+public interface ApiInterface {
+
+    @GET("/api/users")
+    Call<UsersList> getAllUsers();
+
+}
+```
+
+ii. Create call request
+
+```java
+ 
+ Call<UsersList> call = ApiClient.getInstance(this)
+                .setBaseUrl("https://reqres.in")
+                .getAuthClient(new AuthInitializer() {
+                    @Override
+                    public String getBearerToken() {
+                        return "Bearer 129318309809843589350938509893540832945";
+                    }
+                }).create(ApiInterface.class)
+                .getAllUsers();
+```
+iii. Enqueue call for to perform
+
+```java
+call.enqueue(new Callback<UsersList>() {
+     @Override
+     public void onResponse(Call<UsersList> call, Response<UsersList> respons
+            Timber.i(response.body().toString());
+     }
+     
+     @Override
+     public void onFailure(Call<UsersList> call, Throwable t) {
+        call.cancel();
+     }});
+```
+
+
+
+Please make sure to update tests as appropriate.
+
+## License
+[Apache 2.0](http://www.opensource.org/licenses/apache2.0.php)
