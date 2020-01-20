@@ -3,21 +3,25 @@ RetroBuilder is an helper module for retrofit with added new features like authe
 
 [ ![Download](https://api.bintray.com/packages/profahad/maven/site.business.appslandz.retrobuilder/images/download.svg) ](https://bintray.com/profahad/maven/site.business.appslandz.retrobuilder/_latestVersion)
 
-## Installation
-Add this to gradle
+# Installation
+
+## Add the jCenter repository to your build file
+
 ```gradle
 repositories {
     jcenter()
 }
 ```
-
+## Add the dependency
 ```gradle
-implementation 'site.business.appslandz:retrobuilder:1.0.0'
+dependencies {
+    implementation 'site.business.appslandz:retrobuilder:1.0.0'
+}
 ```
 
 ## Usage
 
-i. Retrofit api service interface
+## i. Retrofit api service interface
 ```java 
 public interface ApiInterface {
 
@@ -27,7 +31,7 @@ public interface ApiInterface {
 }
 ```
 
-ii. Create auth call with bearer
+## ii. Create auth call with bearer
 
 ```java
  
@@ -41,7 +45,7 @@ Call<UsersList> call = ApiClient.getInstance(this)
                .getAllUsers();
 ```
 
-Or create simple call
+## Or create simple call
 
 ```java
  
@@ -52,7 +56,7 @@ Call<UsersList> call = ApiClient.getInstance(this)
 
 ```
 
-iii. Enqueue call for to perform
+## iii. Enqueue call to request queue
 
 ```java
 call.enqueue(new Callback<UsersList>() {
