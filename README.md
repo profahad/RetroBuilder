@@ -31,15 +31,14 @@ ii. Create call request
 
 ```java
  
- Call<UsersList> call = ApiClient.getInstance(this)
-                .setBaseUrl("https://reqres.in")
-                .getAuthClient(new AuthInitializer() {
-                    @Override
-                    public String getBearerToken() {
-                        return "Bearer 129318309809843589350938509893540832945";
-                    }
-                }).create(ApiInterface.class)
-                .getAllUsers();
+Call<UsersList> call = ApiClient.getInstance(this)
+        .setBaseUrl("https://reqres.in")
+        .getAuthClient(new AuthInitializer() {
+            @Override
+            public String getBearerToken() {
+                 return "Bearer 129318309809843589350938509893540832945";
+            }}).create(ApiInterface.class)
+               .getAllUsers();
 ```
 iii. Enqueue call for to perform
 
@@ -56,9 +55,11 @@ call.enqueue(new Callback<UsersList>() {
      }});
 ```
 
-
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
+
 
 ## License
 [Apache 2.0](http://www.opensource.org/licenses/apache2.0.php)
