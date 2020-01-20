@@ -27,7 +27,7 @@ public interface ApiInterface {
 }
 ```
 
-ii. Create call request
+ii. Create auth call with bearer
 
 ```java
  
@@ -40,6 +40,18 @@ Call<UsersList> call = ApiClient.getInstance(this)
             }}).create(ApiInterface.class)
                .getAllUsers();
 ```
+
+Or create simple call
+
+```java
+ 
+Call<UsersList> openCall = ApiClient.getInstance(this)
+                .setBaseUrl("https://reqres.in")
+                .getClient().create(ApiInterface.class)
+                .getAllUsers();
+
+```
+
 iii. Enqueue call for to perform
 
 ```java
