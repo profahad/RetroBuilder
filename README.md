@@ -19,6 +19,15 @@ dependencies {
 }
 ```
 
+## Add Compatibility version tag
+```gradle
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
 ## Usage
 
 ## i. Retrofit api service interface
