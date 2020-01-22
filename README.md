@@ -38,7 +38,7 @@ android {
 public interface ApiInterface {
 
     @GET("/api/users")
-    Call<UsersList> getAllUsers();
+    Call<ApiResponse<List<User>>> getAllUsers();
 
 }
 ```
@@ -47,7 +47,7 @@ public interface ApiInterface {
 
 ```java
  
-Call<UsersList> call = ApiClient.getInstance(this)
+Call<ApiResponse<List<User>>> call = ApiClient.getInstance(this)
         .setBaseUrl("https://reqres.in")
         .getAuthClient(new AuthInitializer() {
             @Override
@@ -61,7 +61,7 @@ Call<UsersList> call = ApiClient.getInstance(this)
 
 ```java
  
-Call<UsersList> call = ApiClient.getInstance(this)
+Call<ApiResponse<List<User>>> call = ApiClient.getInstance(this)
                 .setBaseUrl("https://reqres.in")
                 .getClient().create(ApiInterface.class)
                 .getAllUsers();
@@ -71,14 +71,14 @@ Call<UsersList> call = ApiClient.getInstance(this)
 ## iii. Enqueue call to request queue
 
 ```java
-call.enqueue(new Callback<UsersList>() {
+call.enqueue(new Callback<ApiResponse<List<User>>>() {
      @Override
-     public void onResponse(Call<UsersList> call, Response<UsersList> respons
+     public void onResponse(Call<ApiResponse<List<User>>> call, Response<ApiResponse<List<User>>> respons
             Timber.i(response.body().toString());
      }
      
      @Override
-     public void onFailure(Call<UsersList> call, Throwable t) {
+     public void onFailure(Call<ApiResponse<List<User>>> call, Throwable t) {
         call.cancel();
      }});
 ```
