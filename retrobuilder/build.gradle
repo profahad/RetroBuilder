@@ -10,7 +10,7 @@ ext {
 
     publishedGroupId = 'site.business.appslandz' // Group ID of the SDK which will be added in implementation line of gradle
     artifact = 'retrobuilder' // Artifact ID of the SDK which will be added in implementation line of gradle
-    libraryVersion = '1.0.1' // Version of the library you created in Bintray
+    libraryVersion = '1.0.2' // Version of the library you created in Bintray
 
     libraryName = 'RetroBuilder' // It is generally the module name
     libraryDescription = 'Retrofit Helper Library' // Small description of the library
@@ -43,8 +43,8 @@ android {
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 3
+        versionName "1.0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'

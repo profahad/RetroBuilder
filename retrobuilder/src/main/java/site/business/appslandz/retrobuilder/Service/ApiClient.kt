@@ -15,9 +15,9 @@ class ApiClient private constructor(context: Context) {
     private val TAG = ApiClient::class.java.simpleName
     private var context: Context? = null
     private var baseUrl: String = ""
-    fun setBaseUrl(baseUrl: String): ApiClient {
-        this.baseUrl = baseUrl
-        return this
+
+    init {
+        this.context = context
     }
 
     // HttpLoggingInterceptor
@@ -63,15 +63,23 @@ class ApiClient private constructor(context: Context) {
     }
 
     companion object {
-        private lateinit var ourInstance: ApiClient
+
+        private var ourInstance: ApiClient? = null
+
         @kotlin.jvm.JvmStatic
         fun getInstance(context: Context): ApiClient {
+            if (ourInstance != null) {
+                return ourInstance as ApiClient
+            }
             ourInstance = ApiClient(context)
-            return ourInstance
+            return ourInstance as ApiClient
         }
     }
 
-    init {
-        this.context = context
+    fun setBaseUrl(baseUrl: String): ApiClient {
+        this.baseUrl = baseUrl
+        return this
     }
+
+
 }

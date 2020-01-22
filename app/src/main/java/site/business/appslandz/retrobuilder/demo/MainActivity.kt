@@ -18,8 +18,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val authCall = ApiClient.getInstance(this)
+        ApiClient.getInstance(this)
                 .setBaseUrl("https://reqres.in")
+
+        val authCall = ApiClient.getInstance(this)
                 .getAuthClient(object : AuthInitializer {
                     override val bearerToken: String
                         get() = "Bearer 129318309809843589350938509893540832945"
