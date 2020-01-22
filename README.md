@@ -1,5 +1,5 @@
 # RetroBuilder
-RetroBuilder is an helper module for retrofit with added new features like authentication interceptor, enabled logging interceptor, and gson interceptor. 
+RetroBuilder is an helper module for retrofit with added new features like authentication interceptor, enabled logging interceptor, and gson interceptor. Now migrated to kotlin.
 
 [ ![Download](https://api.bintray.com/packages/profahad/maven/site.business.appslandz.retrobuilder/images/download.svg) ](https://bintray.com/profahad/maven/site.business.appslandz.retrobuilder/_latestVersion)
 
@@ -15,7 +15,7 @@ repositories {
 ## Add the dependency
 ```gradle
 dependencies {
-    implementation 'site.business.appslandz:retrobuilder:1.0.0'
+    implementation 'site.business.appslandz:retrobuilder:X.X.X'
 }
 ```
 
